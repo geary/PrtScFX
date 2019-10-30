@@ -1,0 +1,77 @@
+PRTSCFX.DOC -- Documentation for PrtScFX	11/23/83
+
+PrtScFX is a screen dump program which prints a graphic image of a text
+mode display on an Epson FX or RX (not MX!) series printer.  The printout
+looks just like a screen display, including connected line graphics.
+
+PrtScFX should be run once, typically from your AUTOEXEC.BAT file.  From
+then on, if you are in 80 column text mode, the Shift-Prtsc key will give
+you the prompt:
+
+G = text graphics dump, D = darker graphics, SPACE = normal dump, Esc = cancel
+
+and you can type:
+
+    G		for a text mode graphics dump
+    D		for a better quality (double-strike) text graphics dump
+    Space Bar	for a "normal" screen dump (passes the request on to the
+		standard - or other special - screen dump utility)
+    Esc 	to cancel the screen dump request
+
+Either the IBM Monochrome Display or the color/graphics adapter can be
+used, but only 80-column TEXT mode displays are dumped.  For either display
+adapter, the printout duplicates the font of the IBM Monochrome Display.
+
+PrtScFX coexists nicely with IBM's GRAPHICS program.  Just run them both in
+your AUTOEXEC (in either order), and then GRAPHICS will handle graphics
+mode displays, and PrtScFX will kick in for text mode.
+
+PrtScFX produced the illustrations of Transend PC screens in my article
+(with Richard Moore), "A Communications Package for the IBM PC", in the
+November 1983 BYTE magazine.  For camera-ready art like this, I recommend:
+
+ *  A fairly fresh ribbon - but not brand new (smudges).  The one we used
+    in the article was a little faint.
+ *  Good quality bond paper - not typical printout paper (the ink bleeds).
+ *  If available, friction feed instead of pin feed - better registration.
+ *  The D option for double-strike graphics.
+
+In the article, we used a ribbon that was just a little too faint.
+
+
+PrtScFX is placed in the public domain without restriction.
+
+Michael Geary
+P.O. Box 1479
+Los Gatos, CA 95031
+(408) 354-4400
+
+
+FILES
+-----
+
+If you just want to use PrtScFX, you just need PRTSCFX.COM
+
+If you want to modify and/or re-assemble PrtScFX, the source files are
+PRTSCFX.ASM and MONOCG.ASM.  The latter file contains the character
+generator data from the ROM on the display adapters.  If you don't need to
+modify this, just use MONOCG.OBJ.
+
+
+ASSEMBLING & LINKING
+--------------------
+
+(change drive letters as needed)
+
+B>masm PrtScFX ;
+B>masm MonoCG ;     (omit if you have MONOCG.OBJ)
+B>link PrtScFX + MonoCG ;
+If you have the Spacemaker program by Realia, Inc.:
+    B>sm PrtScFX ; /s
+If you don't have Spacemaker, you should get it!  For now, use:
+    B>exe2bin PrtScFX.exe PrtScFX.com
+    (Your .COM file will be larger using exe2bin)
+B>del PrtScFX.exe
+
+Suggested modifications:  Handle 40 column text, clean up & document code
+(sorry, it started out as a "quick and dirty" program).
