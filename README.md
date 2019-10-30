@@ -22,11 +22,11 @@ you the prompt:
 
 and you can type:
 
-    G		for a text mode graphics dump
-    D		for a better quality (double-strike) text graphics dump
-    Space Bar	for a "normal" screen dump (passes the request on to the
-		standard - or other special - screen dump utility)
-    Esc 	to cancel the screen dump request
+    G           for a text mode graphics dump
+    D           for a better quality (double-strike) text graphics dump
+    Space Bar   for a "normal" screen dump (passes the request on to the
+                standard - or other special - screen dump utility)
+    Esc         to cancel the screen dump request
 
 Either the IBM Monochrome Display or the color/graphics adapter can be
 used, but only 80-column TEXT mode displays are dumped.  For either display
